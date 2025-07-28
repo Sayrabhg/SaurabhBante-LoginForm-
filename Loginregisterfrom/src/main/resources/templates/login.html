@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html >
+<html lang="en">
+
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Login Form</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    <h2>Login</h2>
-    <form th:action="@{/login}" method="post">
-        <label>Username:</label><br>
-        <input type="text" name="uname" required><br><br>
-        <label>Password:</label><br>
-        <input type="password" name="pass" required><br><br>
-        <button type="submit">Login</button>
-    </form>
-    <p th:if="${error}" th:text="${error}" style="color:red;"></p>
-    <p th:if="${message}" th:text="${message}" style="color:green;"></p>
-    <p>Don't have an account? <a th:href="@{/register}">Register</a></p>
+    <section id="login" class=" h-full relative">
+        <div class="img"><img class="w-screen h-screen" th:src="@{/images/loginregister.jpg}" alt=""></div>
+        <div id="login" class="border text-white w-max lg:p-9 md:p-6 sm:p-3 rounded-3xl absolute top-[50%] left-[50%] transform-[translate(-50%,-50%)]">
+            <h2 class="text-5xl font-bold text-center pt-3 pb-6">Login</h2>
+            <form th:action="@{/login}" method="post" class="py-6">
+                <label class="text-xl">Username :</label><br>
+                <input type="text" name="uname" class="pt-3 w-full outline-none" required><br><br>
+                <label class="text-xl">Password :</label><br>
+                <input type="password" name="pass" class="pt-3 w-full outline-none" required><br><br>
+                <div class="text-center"><button type="submit" class=" bg-cyan-500 text-xl py-2 px-9 rounded-full cursor-pointer    ">Login</button></div>
+            </form>
+            <p class="text-xl" th:if="${error}" th:text="${error}" style="color:red;"></p>
+            <p class="text-xl" th:if="${message}" th:text="${message}" style="color:rgb(0, 255, 0);"></p>
+            <p class="text-xl">Don't have an account? <a th:href="@{/register}" class="text-cyan-300 hover:text-cyan-400 cursor-pointer">Register</a></p>
+        </div>
+    </section>
 </body>
+
 </html>
